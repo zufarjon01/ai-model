@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Prediction</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<style>
+    /* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 800px;
+    /* height: 60vh; */
+}
+
+label {
+    font-size: 14px;
+    color: #555;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    text-align: center;
+    color: #007bff;
+    margin-top: 20px;
+}
+
+</style>
+<body>
+    <h1 style="padding: 10px;">Lung cancer prognosis   </h1>
+    <form action="/predict" method="post" class="container">
+        <label for="gender">Gender (0=Female, 1=Male):</label>
+        <input type="number" id="gender" name="gender" min="0" max="1" required><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="smoking">Smoking (0=No, 1=Yes):</label>
+        <input type="number" id="smoking" name="smoking" min="0" max="2" required><br>
+
+        <!-- Add input fields for each of the remaining features -->
+        <label for="yellow_fingers">Yellow Fingers (0=No, 1=Yes):</label>
+        <input type="number" id="yellow_fingers" name="yellow_fingers" min="0" max="2" required><br>
+
+        <label for="anxiety">Anxiety (0=No, 1=Yes):</label>
+        <input type="number" id="anxiety" name="anxiety" min="0" max="2" required><br>
+
+        <!-- Additional features continue similarly -->
+        <label for="peer_pressure">Peer Pressure:</label>
+        <input type="number" id="peer_pressure" name="peer_pressure" min="0" max="2" required><br>
+
+        <label for="chronic_disease">Chronic Disease:</label>
+        <input type="number" id="chronic_disease" name="chronic_disease" min="0" max="2" required><br>
+
+        <label for="fatigue">Fatigue:</label>
+        <input type="number" id="fatigue" name="fatigue" min="0" max="2" required><br>
+
+        <label for="allergy">Allergy:</label>
+        <input type="number" id="allergy" name="allergy" min="0" max="2" required><br>
+
+        <label for="wheezing">Wheezing:</label>
+        <input type="number" id="wheezing" name="wheezing" min="0" max="2" required><br>
+
+        <label for="alcohol_consuming">Alcohol Consuming:</label>
+        <input type="number" id="alcohol_consuming" name="alcohol_consuming" min="0" max="2" required><br>
+
+        <label for="coughing">Coughing:</label>
+        <input type="number" id="coughing" name="coughing" min="0" max="2" required><br>
+
+        <label for="shortness_of_breath">Shortness of Breath:</label>
+        <input type="number" id="shortness_of_breath" name="shortness_of_breath" min="0" max="2" required><br>
+
+        <label for="swallowing_difficulty">Swallowing Difficulty:</label>
+        <input type="number" id="swallowing_difficulty" name="swallowing_difficulty" min="0" max="2" required><br>
+
+        <label for="chest_pain">Chest Pain:</label>
+        <input type="number" id="chest_pain" name="chest_pain" min="0" max="2" required><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <h2 style="padding: 20px;">Prediction Result: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
